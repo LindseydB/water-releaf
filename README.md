@@ -11,4 +11,4 @@ Tech and Stack used:
 
 2. Raspberry Pi and Moisture Sensor: I followed this tutorial (https://www.mathworks.com/help/thingspeak/MoistureMonitor.html) for setting up the Raspberry Pi and Moisture Sensor. This tutorial helped me with the setup of the Raspberry Pi and Sensor and also taught me how an API would work. The tutorial asks the user to use a third party system called ThingSpeak to create the API key. Instead of using ThingSpeak, I built an API that is hosted on a Plesk server. I was able to reference this tutorial to get the basic idea of what I needed to do to build the API - like connecting to a database to receive and retrieve the sensor data and get the API command from the Raspberry Pi. The Raspberry Pi hosts a Python Script that detects sensor changes. I copied this code from a tutorial, and only altered it slightly so that it accesses the API URL, rather than the URL for ThingSpeak.   
 
-3. Database: I used PHPMyAdmin to store data from the Moisture Sensor.
+3. Database: I used MySQL to store data from the Moisture Sensor.
