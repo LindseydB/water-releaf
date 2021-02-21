@@ -5,7 +5,7 @@ Tech and Stack used:
 + Ionic framework to develop the mobile application
 + Raspberry Pi and Arduino Moisture Sensor  
 + Python script hosted on the Raspberry Pi, to detect Moisture Sensor changes
-+ PHP API that is hosted on a Plesk Server + Data is stored in a phpMyAdmin Database   
++ PHP API that is hosted on a Plesk Server + Data is stored in a MySQL Database   
 
 1. I used the Ionic framework to create the application. Given time constraints, I used an Ionic theme that I repurposed, this is the theme that I used (https://ionicthemes.com/product/ion2fullapp-full-ionic2-app-template-elite-version). It was a lot of work stripping back this theme. I think starting from scratch would have been easier! But I did learn a lot about Saas and TypeScript from this theme. Also seeing how this theme handled data using JSON was helpful.  
 
