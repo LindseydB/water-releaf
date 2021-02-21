@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/plants"></ion-back-button>
+    </ion-buttons>
+    <ion-title><ion-icon name="leaf-outline"></ion-icon> {{details?.name}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="plant-details-content">
+  <ion-row class="image-row">
+    <ion-col size="12">
+      <app-image-shell [display]="'cover'" animation="spinner" class="add-overlay showcase-image" [src]="details?.image">
+        <app-aspect-ratio [ratio]="{w:64, h:40}">
+          <div class="icon-wrapper">
+            <app-aspect-ratio [ratio]="{w: 40, h: 20}">
+              <app-image-shell class="icon-image" [src]="details?.icon"></app-image-shell>
+            </app-aspect-ratio>
+          </div>
+        </app-aspect-ratio>
+      </app-image-shell>
+    </ion-col>
+  </ion-row>
+
+
+
+
+  <hr class="details-divider">
+
+  <div class="popular-dishes-wrapper">
+    <h3 class="detail-title">Water Levels</h3>
+
+    <ion-list inset class="plant-log" *ngFor="let level of details?.moisture_events">
+      <ion-item>
+        <span class="item-rating" [attr.ratingBase]="level.moisture_level">
+        <ion-icon size="large" name="sad-outline" *ngIf="level.moisture_level == 0"></ion-icon>
+        <ion-icon size="large" name="happy-outline" *ngIf="level.moisture_level > 0"></ion-icon>
+        </span>
+        <div>{{level.date}}</div>
+      </ion-item>
+
+    </ion-list>
+
+<!--
+
+let price of [].constructor(details?.priceRange)
+    <ion-row class="popular-dish">
+
+      <ion-col size="11">
+
+        <ion-progress-bar class="dish-score" style="height:30px; border-radius:15px; width:100%;" type="determinate" [value]="(details?.moisture_level/7)"></ion-progress-bar>
+      </ion-col>
+      <ion-col size="1" class="dish-votes-count">
+        <div class="dish-votes-value">
+          <app-text-shell [data]="details?.moisture_level" *ngIf="details?.moisture_level > 0"></app-text-shell>
+          <span *ngIf="details?.moisture_level == 0">0</span>
+        </div>
+       </ion-col>
+    </ion-row>
+
+
+    <div class="plant-log" style="margin-top:20px"><ion-icon name="water-outline"></ion-icon> Last watered: <strong>{{details?.date | date: "MM/dd/yyyy"}}</strong> at <strong>{{details?.date | date: "shortTime"}}</strong></div>
+    <div class="plant-log" style="margin-top:20px"><ion-icon name="calendar-outline"></ion-icon> On average, watering is required every <strong>2 days</strong></div>
+-->
+  </div>
+  <hr class="details-divider">
+
+
+</ion-content>

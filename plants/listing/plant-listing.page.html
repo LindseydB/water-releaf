@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar color="primary">
+
+    <ion-title><ion-icon name="leaf-outline"></ion-icon> Water re-leaf</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="plant-listing-content">
+  <ng-container *ngIf="listing?.items">
+    <div class="listing-item" *ngFor="let item of listing?.items">
+      <div class="cover-wrapper">
+        <a class="cover-anchor" [routerLink]="['/app/plant/', item.slug]">
+          <app-image-shell class="cover-image add-overlay" animation="spinner" [display]="'cover'" [src]="item.image">
+            <app-aspect-ratio [ratio]="{w:35, h:15}">
+              <div class="cover-icon-wrapper">
+                <app-aspect-ratio [ratio]="{w: 20, h: 7}">
+                  <app-image-shell class="item-icon" [src]="item.icon"></app-image-shell>
+                </app-aspect-ratio>
+              </div>
+            </app-aspect-ratio>
+          </app-image-shell>
+        </a>
+      </div>
+      <ion-row class="info-row">
+        <ion-col class="description-col">
+          <ion-row class="description-wrapper">
+            <h3 class="item-name">
+              <a class="name-anchor" [routerLink]="['/app/plant/', item.slug]" style="color:#000000;">
+                <app-text-shell [data]="item.name"></app-text-shell>
+              </a>
+            </h3>
+
+          </ion-row>
+        </ion-col>
+        <ion-col class="stats-col">
+          <span class="item-rating" [attr.ratingBase]="item.moisture_events[0]?.moisture_level">
+
+            <ion-icon size="large" name="sad-outline" *ngIf="item.moisture_events[0]?.moisture_level == 0"></ion-icon>
+            <ion-icon size="large" name="happy-outline" *ngIf="item.moisture_events[0]?.moisture_level > 0"></ion-icon>
+
+          </span>
+
+        </ion-col>
+      </ion-row>
+
+    </div>
+  </ng-container>
+</ion-content>
